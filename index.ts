@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // criando a constante que possui os metódos da classe de exemplo da estrutura de dados LinkedList
-const linkedList = new LinkedList()
+const numberLinkedList = new LinkedList<number>()
 
 // Middleware para fazer o parse do corpo das requisições em JSON
 app.use(express.json());
@@ -17,11 +17,11 @@ app.get('/', (req: Request, res: Response) => {
 
 app.post('/linkedList/AddNumber',(req: Request, res: Response)=>{
   const newNumber = req.body.number;
-  linkedList.append(newNumber)
+  numberLinkedList.append(newNumber)
   res.status(201).json({message:`Número ${newNumber} adicionado com sucesso na lista ligada`})
 })
 app.get('/linkedList/GetNumbers',(req: Request, res: Response)=>{
-  const myNumbers = linkedList.display()
+  const myNumbers = numberLinkedList.display()
   res.json({numbers:myNumbers})
 })
 
