@@ -31,8 +31,14 @@ const Abel: Person = {
   mother: Eva,
 };
 
-const AdamGenealogyTree = new GenealogyGraph<Person>(Adam);
-const EvaGenealogyTree = new GenealogyGraph<Person>(Eva);
+function newGenealogy(person: Person){
+  const genealogy = new GenealogyGraph<Person>(person);
+  return genealogy
+}
+
+const AdamGenealogyTree: GenealogyGraph<Person> = newGenealogy(Adam)
+const EvaGenealogyTree: GenealogyGraph<Person> = newGenealogy(Eva)
+
 AdamGenealogyTree.addMember(Adam, Abel);
 EvaGenealogyTree.addMember(Eva, Abel);
 
