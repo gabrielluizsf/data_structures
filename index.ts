@@ -2,6 +2,7 @@ import express, {Request,Response} from "express";
 import linkedListRoutes from "./routes/linkedList.routes.mjs";
 import binarySearchRoutes from "./routes/bst.routes.mjs";
 import graphRoutes from "./routes/graph.routes.mjs";
+import queueRoutes from "./routes/queue.routes.mjs";
 
 const server = express()
 const PORT = process.env.PORT || 3000;
@@ -17,6 +18,7 @@ server.get('/', (req: Request, res: Response) => {
 server.use(linkedListRoutes)
 server.use(binarySearchRoutes)
 server.use(graphRoutes)
+server.use(queueRoutes)
 
 // Inicializa o servidor http
 server.listen(PORT, () => {
